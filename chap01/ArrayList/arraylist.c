@@ -114,7 +114,7 @@ int 	removeALElement(ArrayList* pList, int position)
 		return (ERROR);
 	}
 	if (pList->currentElementCount == 0)
-		return (TRUE);
+		return (FALSE);
 	memmove(&pList->pElement[position], &pList->pElement[position + 1], sizeof(*pList) * (pList->maxElementCount - position - 1));
 	pList->currentElementCount--;
 	return (TRUE);	
