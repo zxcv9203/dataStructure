@@ -1,6 +1,9 @@
 #ifndef _DOUBLYLIST_
 #define _DOUBLYLIST_
 
+#include <stdlib.h>
+#include <stdio.h>
+
 typedef struct DoublyListNodeType
 {
 	int data;							// 값
