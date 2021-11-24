@@ -13,13 +13,13 @@ typedef struct LinkedListType
 } LinkedList;
 */
 
-void    createLinkedList_test()
-{
-    LinkedList *lst;
+//void    createLinkedList_test()
+//{
+//    LinkedList *lst;
     
-    lst = createLinkedList();
-    printf("LinkedList : %p\ncurrentElementCount : %d\n", lst, lst->currentElementCount);
-}
+//    lst = createLinkedList();
+//    printf("LinkedList : %p\ncurrentElementCount : %d\n", lst, lst->currentElementCount);
+//}
 
 void addLLElement_test()
 {
@@ -79,7 +79,12 @@ void    removeLLElement_test()
     }
     printLinkedList(ls);
     printf("\n\n");
-    removeLLElement(ls, 4);
+    //removeLLElement(ls, 0);
+    removeLLElement(ls, 1);
+    //removeLLElement(ls, 2);
+    //removeLLElement(ls, 3);
+    //removeLLElement(ls, 4);
+    //removeLLElement(ls, 5);
     printLinkedList(ls);
 }
 
@@ -165,7 +170,7 @@ int main() {
 	//addLLElement_test();
     //deleteLinkedList_test();
     //removeLLElement_test();
-    //getLLElement_test();
+    getLLElement_test();
     //clearLinkedList_test();
     //getLinkedListLength_test();
     //deleteLinkedList_test();
