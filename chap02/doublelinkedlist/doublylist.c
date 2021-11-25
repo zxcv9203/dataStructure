@@ -25,15 +25,16 @@ void deleteDoublyList(DoublyList* pList)
 	while (node && node != &pList->headerNode) {
 		release = node;
 		node = node->pRLink;
-		free(release);
 		release->pLLink = 0;
 		release->pRLink = 0;
 		release->data = 0;
+		free(release);
+
 	}
-	free(pList);
 	pList->currentElementCount = 0;
 	pList->headerNode.pLLink = 0;
 	pList->headerNode.pRLink = 0;
+	free(pList);
 }
 
 int addDLElement(DoublyList* pList, int position, DoublyListNode element)
@@ -43,7 +44,9 @@ int addDLElement(DoublyList* pList, int position, DoublyListNode element)
 	int				i;
 
 	i = 0;
-	if (pList == NULL || (position < 0 || pList->currentElementCount < position))
+	if (pList == NULL)
+		return (FALSE);
+	if (position < 0 || pList->currentElementCount < position)
 		return (FALSE);
 	node = (DoublyListNode *)malloc(sizeof(DoublyListNode));
 	if (node == NULL)

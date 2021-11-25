@@ -56,6 +56,10 @@ DoublyListNode* getDLElement(DoublyList* pList, int position);
 *** Display Double List의 값들을 출력해줍니다.
 */
 void displayDoublyList(DoublyList* pList);
+
+/*
+*** Double Linked List를 reverse 하는 함수입니다.
+*/
 void reverseDoublyLinkedList(DoublyList *pList);
 #endif
 
