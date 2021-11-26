@@ -86,6 +86,9 @@ int removeDLElement(DoublyList* pList, int position)
 	next = node->pRLink;
 	next->pLLink = prev;
 	prev->pRLink = next;
+	node->pLLink = NULL;
+	node->pRLink = NULL;
+	node->data = 0;
 	free(node);
 	pList->currentElementCount--;
 	return (TRUE);
@@ -94,6 +97,7 @@ int removeDLElement(DoublyList* pList, int position)
 void clearDoublyList(DoublyList* pList)
 {
 	DoublyListNode *node;
+	DoublyListNode *prev;
 	int				i;
 
 	if (pList == NULL)
@@ -102,9 +106,13 @@ void clearDoublyList(DoublyList* pList)
 	node = pList->headerNode.pRLink;
 	while (i--)
 	{
-		node->data = 0;
-		pList->currentElementCount--;
+		prev = node;
 		node = node->pRLink;
+		prev->pLLink = NULL;
+		prev->pRLink = NULL;
+		prev->data = 0;
+		pList->currentElementCount--;
+		free(prev);
 	}
 }
 
