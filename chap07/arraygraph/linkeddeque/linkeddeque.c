@@ -27,8 +27,9 @@ int insertFrontLD(LinkedDeque* pDeque, DequeNode element)
 		return (FALSE);
 	*pNode = element;
 	pNode->pRLink = pDeque->pFrontNode;
-    if (pDeque->pFrontNode)
+    if (pDeque->pFrontNode) {
         pDeque->pFrontNode->pLLink = pNode;
+	}
 	pDeque->pFrontNode = pNode;
     pNode->pLLink = NULL;	
     if (isLinkedDequeEmpty(pDeque))
