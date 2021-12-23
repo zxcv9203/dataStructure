@@ -27,8 +27,8 @@ void insertHeapNode(ArrayHeap *pArrayHeap, HeapNode element)
         printf("This heap is full");
         return;
     }
-    nextpos = ++(pArrayHeap->currentElementCount); // 留덉��留� �끂�뱶 �떎�쓬 �옄由ъ뿉 �깉濡� �꽔�쓣 element �쐞移� �엫�떆 ����옣
-    while (nextpos != 1 && element.key < pArrayHeap->pElement[nextpos / 2].key)
+    nextpos = ++(pArrayHeap->currentElementCount); // 癲ル슢�뵯占쎌맆占쎈쐻占쎈짗占쎌굲癲ル슢�뿪占쎌굲 占쎈쐻占쎈윥椰꾩�λ쐻占쎈윥�뤃占� 占쎈쐻占쎈윥�젆袁��쐻占쎈윪甕곤옙 占쎈쐻占쎈윪占쎄껑�뜝�럥�렓�뜝�럥遊억옙諭� 占쎈쐻占쎈윞占쎈룼占쎌뒙占쎈뙔占쎌굲 占쎈쐻占쎈윞占쎈쭨占쎈쐻占쎈윪獄�占� element 占쎈쐻占쎈윪筌띻쑈�뇲占쎄땔占쎌굲 占쎈쐻占쎈윪�굢�깷�쐻占쎈윥筌묕옙 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲�뜝�럩沅�
+    while (nextpos != 1 && element.key > pArrayHeap->pElement[nextpos / 2].key)
     {
         pArrayHeap->pElement[nextpos] = pArrayHeap->pElement[nextpos / 2];
         nextpos /= 2;
@@ -81,9 +81,9 @@ HeapNode *deleteHeapNode(ArrayHeap *pArrayHeap)
 
     while (child <= pArrayHeap->currentElementCount)
     {
-        if (child < pArrayHeap->currentElementCount && pArrayHeap->pElement[child].key < pArrayHeap->pElement[child + 1].key)
+        if (child < pArrayHeap->currentElementCount && pArrayHeap->pElement[child].key > pArrayHeap->pElement[child + 1].key)
             child++;
-        if (tempNode->key >= pArrayHeap->pElement[child].key)
+        if (tempNode->key <= pArrayHeap->pElement[child].key)
             break;
         pArrayHeap->pElement[parent] = pArrayHeap->pElement[child];
         parent = child;
