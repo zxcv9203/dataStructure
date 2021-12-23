@@ -95,16 +95,10 @@ LinkedGraph *Kruskal(LinkedGraph *pGraph)
 		addVertexLG(rGraph, i);   
 	}
     minHeap = sortEdges(pGraph);
-	for (int i = 0; i < minHeap->maxElementCount; i++) {
-		printf("key : %d ", minHeap->pElement[i].key);
-		printf("to : %d ", minHeap->pElement[i].toVertexID);
-		printf("from : %d\n", minHeap->pElement[i].fromVertexID);
-	}
-	(void)temp;
-	(void)minHeap;
     while (minHeap->currentElementCount != 0)
     {
         temp = deleteHeapNode(minHeap);
+		printf("%d %d %d\n", temp->toVertexID, temp->fromVertexID, temp->key);
         if(!find(vertex, temp->toVertexID, temp->fromVertexID))
         {
             unionParent(vertex, temp->toVertexID, temp->fromVertexID);
@@ -135,11 +129,10 @@ int main() {
     addEdgewithWeightLG(pGraph, 3, 4, 1);
     addEdgewithWeightLG(pGraph, 3, 5, 5);
     addEdgewithWeightLG(pGraph, 4, 5, 6);
-    printf("Edgecount: %d\n", pGraph->currentEdgeCount);
 
 	krus = Kruskal(pGraph);
 	(void)krus;
-	//displayLinkedGraph(krus);
+	displayLinkedGraph(krus);
 	//for (int i = 0; i < krus->maxVertexCount; i++)
 	//	printf("%d\n", krus->pVertex[i]);
 }
