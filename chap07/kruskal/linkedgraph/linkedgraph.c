@@ -136,7 +136,6 @@ int addEdgewithWeightLG(LinkedGraph *pGraph, int fromVertexID, int toVertexID, i
         addLLElement(pGraph->ppAdjEdge[toVertexID], 0, addNode);
     }
 	pGraph->currentEdgeCount++;
-	printf("func in Edge Count : %d\n", pGraph->currentEdgeCount);
     return (SUCCESS);
 }
 // ����� ��ȿ�� ����.

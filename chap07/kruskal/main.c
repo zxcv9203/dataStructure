@@ -5,7 +5,6 @@
 int *createUnionFind(int m) {
 	int *vertex;
 
-	
 	vertex = (int *)malloc(m * sizeof(int));
 	if (!vertex)
 		return (NULL);
@@ -30,8 +29,6 @@ bool find(int *vertex, int to, int from) {
 		return true;
 	return false;
 }
-
-
 
 // small value prarent init
 void unionParent(int *parent, int a, int b) {
@@ -98,7 +95,6 @@ LinkedGraph *Kruskal(LinkedGraph *pGraph)
     while (minHeap->currentElementCount != 0)
     {
         temp = deleteHeapNode(minHeap);
-		printf("%d %d %d\n", temp->toVertexID, temp->fromVertexID, temp->key);
         if(!find(vertex, temp->toVertexID, temp->fromVertexID))
         {
             unionParent(vertex, temp->toVertexID, temp->fromVertexID);
@@ -112,7 +108,6 @@ LinkedGraph *Kruskal(LinkedGraph *pGraph)
     return (rGraph);   
 }
 
-
 int main() {
 
     LinkedGraph *pGraph;
@@ -120,7 +115,6 @@ int main() {
     pGraph = createLinkedGraph(6);
 	for (int i = 0; i < pGraph->maxVertexCount; i++) {
 		addVertexLG(pGraph, i);
-        
 	}
     addEdgewithWeightLG(pGraph, 0, 1, 4);
     addEdgewithWeightLG(pGraph, 0, 2, 3);
@@ -131,8 +125,5 @@ int main() {
     addEdgewithWeightLG(pGraph, 4, 5, 6);
 
 	krus = Kruskal(pGraph);
-	(void)krus;
 	displayLinkedGraph(krus);
-	//for (int i = 0; i < krus->maxVertexCount; i++)
-	//	printf("%d\n", krus->pVertex[i]);
 }
