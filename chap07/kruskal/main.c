@@ -95,6 +95,11 @@ LinkedGraph *Kruskal(LinkedGraph *pGraph)
 		addVertexLG(rGraph, i);   
 	}
     minHeap = sortEdges(pGraph);
+	for (int i = 0; i < minHeap->maxElementCount; i++) {
+		printf("key : %d ", minHeap->pElement[i].key);
+		printf("to : %d ", minHeap->pElement[i].toVertexID);
+		printf("from : %d\n", minHeap->pElement[i].fromVertexID);
+	}
 	(void)temp;
 	(void)minHeap;
     while (minHeap->currentElementCount != 0)
