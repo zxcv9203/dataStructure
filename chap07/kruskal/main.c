@@ -105,15 +105,15 @@ LinkedGraph *Kruskal(LinkedGraph *pGraph)
     while (minHeap->currentElementCount != 0)
     {
         temp = deleteHeapNode(minHeap);
-        ////if(!find(vertex, temp->toVertexID, temp->fromVertexID))
-        ////{
-        ////    //unionParent(vertex, temp->toVertexID, temp->fromVertexID);
-        ////    //addEdgewithWeightLG(rGraph, temp->fromVertexID, temp->toVertexID, temp->key);
-        ////}
-        //free(temp);
-		//temp = 0;
-        //if (rGraph->currentEdgeCount == rGraph->currentVertexCount-1)
-        //    break ;
+        if(!find(vertex, temp->toVertexID, temp->fromVertexID))
+        {
+            unionParent(vertex, temp->toVertexID, temp->fromVertexID);
+            addEdgewithWeightLG(rGraph, temp->fromVertexID, temp->toVertexID, temp->key);
+        }
+        free(temp);
+		temp = 0;
+        if (rGraph->currentEdgeCount == rGraph->currentVertexCount-1)
+            break ;
     }
     return (rGraph);   
 }
