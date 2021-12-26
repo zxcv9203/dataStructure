@@ -31,12 +31,14 @@ void floydWarshall(LinkedGraph *lg) {
 		}
 	}
 
+	// k == 경유 노드
 	for (int k = 0; k < lg->maxVertexCount; k++) {
 		for (int i = 0; i < lg->maxVertexCount; i++) {
 			for (int j = 0; j < lg->maxVertexCount; j++) {
 				if (ans[i][k] + ans[k][j] < ans[i][j]) {
 					ans[i][j] = ans[i][k] + ans[k][j];
 				}
+				
 			}
 		}
 	}
@@ -67,6 +69,7 @@ int main() {
 		int n;
 		int to;
 		int from;
+		int x;
 
 		printf("1.vertex insert\n2.edge insert(no weight)\n3.edge insert(weight)\n4.remove vertex\n5.remove edge\n6.empty\n7.display\n8.floydwhashall\n9.delete\n");
 		printf("input : ");
@@ -87,8 +90,8 @@ int main() {
 				printf("add edge(from, to) : ");
 				scanf(" %d %d", &from, &to);
 				printf("weight : ");
-				scanf(" %d", &n);
-				if (addEdgewithWeightLG(lg, from, to, n))
+				scanf(" %d", &x);
+				if (!addEdgewithWeightLG(lg, from, to, x))
 					fprintf(stderr, "edge connect failed.\n");
 				break;
 			case 4:
